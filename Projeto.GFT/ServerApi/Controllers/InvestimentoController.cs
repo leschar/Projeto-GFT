@@ -12,9 +12,9 @@ namespace ServerApi.Controllers
     {
         private readonly IInvestimentoService _investimentoService;
 
-        public InvestimentoController(IInvestimentoService investmentService)
+        public InvestimentoController(IInvestimentoService investimentoService)
         {
-            _investimentoService = investmentService;
+            _investimentoService = investimentoService;
         }
 
         [HttpPost("calcular")]

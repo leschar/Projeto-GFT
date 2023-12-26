@@ -6,5 +6,5 @@
     <ShouldRunBuildScript>false</ShouldRunBuildScript>
     <!-- Folder where production build objects will be placed -->
     <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist\AngularWeb\</PublishAssetsDirectory>
-  </PropertyGroup>
+  </PropertyGroup>  
 </Project>

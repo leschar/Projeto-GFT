@@ -1,6 +1,7 @@
 using ServerApi.Domain.Interfaces;
 using ServerApi.Domain.Services;
 using ServerApi.Infra.Repositories;
+using System.Diagnostics.CodeAnalysis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,3 +34,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+[ExcludeFromCodeCoverage]
+public partial class Program() { }

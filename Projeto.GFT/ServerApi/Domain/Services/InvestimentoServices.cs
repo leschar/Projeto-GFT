@@ -1,6 +1,9 @@
 ﻿using ServerApi.Domain.Interfaces;
 using ServerApi.Domain.Models;
+using System.Runtime.CompilerServices;
 
+
+[assembly: InternalsVisibleTo("TestXunit")]
 namespace ServerApi.Domain.Services
 {
     public class InvestimentoServices : IInvestimentoService

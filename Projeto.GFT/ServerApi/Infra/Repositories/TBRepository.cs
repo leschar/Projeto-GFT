@@ -1,7 +1,10 @@
 ﻿using ServerApi.Domain.Interfaces;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ServerApi.Infra.Repositories
 {
+    [ExcludeFromCodeCoverage]
+
     public class TBRepository : ITBRepository
     {
         /// <summary>
