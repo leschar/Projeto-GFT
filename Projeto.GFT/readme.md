@@ -5,6 +5,11 @@ Este projeto é um exemplo de projeto em C# "API" com Angular e testes em XUnit.
 
 O projeto deve atender aos seguintes requisitos:
 
+ * Sistema
+    Node v20.10.0
+    Npm 10.2.5
+    Angular @angular/cli@17.0.8
+    Visusal Studio 2022 17.8.3
 * Funcional:
     * O projeto deve fornecer uma API Web para gerenciar investimentos.
     * O projeto deve calcular os rendimentos dos investimentos após o usuário inserir os dados.
