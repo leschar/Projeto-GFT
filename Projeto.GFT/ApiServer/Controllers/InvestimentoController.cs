@@ -1,5 +1,6 @@
 ﻿using ApiServer.Domain.Interfaces;
 using ApiServer.Domain.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System.Web.Http;
 
@@ -14,7 +15,8 @@ namespace ApiServer.Controllers
             _investimentoService = investimentoService;
         }
 
-        [Microsoft.AspNetCore.Mvc.HttpPost("calcular")]
+        [DisableCors]
+        [Microsoft.AspNetCore.Mvc.HttpPost]
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(typeof(string), 404)]
         public IHttpActionResult CalcularInvestimento([Microsoft.AspNetCore.Mvc.FromBody] InvestimentoRequest request)

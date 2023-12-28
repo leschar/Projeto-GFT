@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace ServerApi.Domain.Models
 {
@@ -9,8 +10,10 @@ namespace ServerApi.Domain.Models
     public class InvestimentoResponse
     {
         [DisplayName("Resultado Bruto")]
+        [JsonProperty("resultadoBruto")]
         public decimal ResultadoBruto { get; set; }
         [DisplayName("Resultado Liquido")]
+        [JsonProperty("resultadoLiquido")]
         public decimal ResultadoLiquido { get; set; }
     }
 }

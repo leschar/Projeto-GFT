@@ -1,13 +1,14 @@
 ﻿using ApiServer.Domain.Interfaces;
 using ApiServer.Domain.Services;
 using ApiServer.Infra.Repositories;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
+using System;
+using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
 
 
 namespace ApiServer
@@ -18,6 +19,29 @@ namespace ApiServer
         {
             RegisterWebApi();
             RegisterDependencyInjection();
+            ResponseFormat();
+
+        }
+
+        private static void ResponseFormat()
+        {
+            var jsonFormatter = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            jsonFormatter.SerializerSettings.Formatting = Formatting.Indented;
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            // Permitir solicitações de qualquer origem, métodos e cabeçalhos
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+            if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
+            {
+                HttpContext.Current.Response.StatusCode = 200;
+                HttpContext.Current.Response.End();
+            }
         }
 
         private void RegisterWebApi()
