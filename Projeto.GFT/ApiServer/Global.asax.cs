@@ -16,32 +16,32 @@ namespace ApiServer
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+            RegisterWebApi();
+            RegisterDependencyInjection();
+        }
+
+        private void RegisterWebApi()
+        {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
 
-
-            // Create the container as usual.
+        private void RegisterDependencyInjection()
+        {
             var container = new Container();
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
-            // Register your types, for instance using the scoped lifestyle:
+            // Register your types using the scoped lifestyle
             container.Register<IInvestimentoService, InvestimentoServices>(Lifestyle.Scoped);
-
             container.Register<ICDIRepository, CDIRepository>(Lifestyle.Scoped);
             container.Register<ITBRepository, TBRepository>(Lifestyle.Scoped);
             container.Register<IImpostoRepository, ImpostoRepository>(Lifestyle.Scoped);
 
-            // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
-
             container.Verify();
 
             GlobalConfiguration.Configuration.DependencyResolver =
                 new SimpleInjectorWebApiDependencyResolver(container);
-
         }
+
     }
 }
