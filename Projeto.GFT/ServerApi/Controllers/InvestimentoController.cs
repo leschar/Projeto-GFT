@@ -19,7 +19,7 @@ namespace ServerApi.Controllers
 
         [HttpPost("calcular")]
         [ProducesResponseType(typeof(string), 200)]
-        [ProducesResponseType(typeof(string), 404)]
+        [ProducesResponseType(typeof(string), 400)]
         public IActionResult CalculateInvestment([FromBody] InvestimentoRequest request)
         {
 
