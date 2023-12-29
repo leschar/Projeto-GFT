@@ -1,15 +1,14 @@
 # Projeto.GFT
-Este projeto é um exemplo de projeto em C# "API" com Angular e testes em XUnit.
-
+Este projeto é um exemplo em C# de uma "API" com Angular e testes em XUnit.
 
 ## Requisitos
 
 O projeto deve atender aos seguintes requisitos:
 
- * Sistema 
-    O projeto preve uso de duas tecnologias Microsoft, .Net Framework 4.8.1 e .NET 8.0
-    Inicialmente esta configurado para executar na versao .Net Framework 4.8.1
-    Visusal Studio 2022 17.8.3
+* Sistema
+    O projeto prevê o uso de duas tecnologias da Microsoft: .Net Framework 4.8.1 e .NET 8.0.
+    Inicialmente, está configurado para executar na versão .Net Framework 4.8.1.
+    Visual Studio 2022 17.8.3
     Node v20.10.0
     Npm 10.2.5
     Angular @angular/cli@17.0.8
@@ -19,14 +18,14 @@ O projeto deve atender aos seguintes requisitos:
     * O projeto deve calcular os rendimentos dos investimentos após o usuário inserir os dados.
 * Não funcional:
     * O projeto deve ser desenvolvido em C#.
-    * O projeto deve usar Angular para o front-end.
-    * O projeto deve usar XUnit para os testes.
+    * O projeto deve utilizar Angular para o front-end.
+    * O projeto deve utilizar XUnit para os testes.
 
 ## Instalação
 
 Para instalar as dependências necessárias para executar o projeto, siga estas etapas:
 
-1. Abra Package Manager Console.
+1. Abra o Package Manager Console.
 2. Execute o seguinte comando: dotnet restore
 
 ## Estrutura
@@ -83,27 +82,25 @@ tests: contém os testes XUnit.
                 - ImpostoRepositoryTests.cs
                 - TBRepositoryTests.cs
 
-
-
 ## Execução
 Para executar o projeto, siga estas etapas:
 
 Abra a Solution no Visual Studio.
-A Solution já está pré configurada para executar o projeto Angular e Api
-Caso não execute ao mesmo tempo, clique com botão direito na Solution e selecione Configure Startup Project
-Selecione Multiple Startup Project e selecione AngularWeb e ServiceApi
-Após selecionar é só executar o projeto com F5
+A Solution já está pré-configurada para executar o projeto Angular e a API.
+Caso não execute ao mesmo tempo, clique com o botão direito na Solution e selecione Configure Startup Project.
+Selecione Multiple Startup Project e escolha AngularWeb e ServiceApi.
+Após selecionar, é só executar o projeto com F5.
 
 O projeto web estará disponível em http://localhost:4200/.
 A API Web utilizando .Net Framework estará disponível em https://localhost:44342/swagger/ui/index.
-E para usar a API Web .NET a mesma estará disponível em https://localhost:7203/swagger/index.html.
-**Obs: Para a utilização da API Web .NET é necessário configurar no Startup Project (Botão direito no projeto Set as Startup Project)**
+E para usar a API Web .NET, estará disponível em https://localhost:7203/swagger/index.html.
+**Obs: Para a utilização da API Web .NET, é necessário configurar no Startup Project (Botão direito no projeto Set as Startup Project)**
 
 ## Testes
 Para executar os testes, siga estas etapas:
 
 No Visual Studio, abra a Solution.
-Na barra de menus, selecione Test >Run All Tests.
+Na barra de menus, selecione Test > Run All Tests.
 
 ## Autor
 **Charles Albert Fernandes**
