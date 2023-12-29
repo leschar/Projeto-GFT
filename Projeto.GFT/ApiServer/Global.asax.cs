@@ -7,12 +7,14 @@ using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Web;
 using System.Web.Http;
 
 
 namespace ApiServer
 {
+    [ExcludeFromCodeCoverage]
     public class WebApiApplication : System.Web.HttpApplication
     {
         protected void Application_Start()

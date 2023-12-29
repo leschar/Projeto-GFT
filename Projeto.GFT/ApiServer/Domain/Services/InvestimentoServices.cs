@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
 
-[assembly: InternalsVisibleTo("TestXunit")]
+[assembly: InternalsVisibleTo("NetFrameworkTests")]
 namespace ApiServer.Domain.Services
 {
     public class InvestimentoServices : IInvestimentoService

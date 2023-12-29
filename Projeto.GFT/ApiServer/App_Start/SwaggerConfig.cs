@@ -1,11 +1,13 @@
 ﻿using ApiServer.App_Start;
 using Swashbuckle.Application;
+using System.Diagnostics.CodeAnalysis;
 using System.Web;
 using System.Web.Http;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 namespace ApiServer.App_Start
 {
+    [ExcludeFromCodeCoverage]
     public class SwaggerConfig
     {
         public static void Register()
