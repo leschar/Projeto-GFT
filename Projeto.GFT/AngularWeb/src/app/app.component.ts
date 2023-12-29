@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CurrencyUtils } from './utils/currency-utils';
+import { environment } from '../enviroments/environment';  
 
 export interface InvestimentoResponse {
   resultadoBruto: number;
@@ -20,16 +21,14 @@ export class AppComponent {
   resultData: InvestimentoResponse | undefined;
   errorMessage: string | undefined;
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
   clicouBotao() {
     const data = {
       Valor: CurrencyUtils.StringParaDecimal(this.texto1),
       Meses: parseInt(this.texto2)
     };
-
-    console.log(data);
-    this.http.post<InvestimentoResponse>('https://localhost:7203/api/investimento/calcular', data)
+    this.http.post<InvestimentoResponse>(environment.apiUrl, data)
       .subscribe(
         (response) => {
           this.resultData = response;
@@ -52,7 +51,10 @@ export class AppComponent {
 
     for (const campoErro in errors) {
       if (errors.hasOwnProperty(campoErro)) {
-        mensagensErro.push(`${errors[campoErro].join('. ')}\n`);
+        const mensagens = errors[campoErro].filter((msg: string) => msg).join('. ');
+        if (mensagens) {
+          mensagensErro.push(`${mensagens}\n`);
+        }
       }
     }
 
